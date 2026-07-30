@@ -1,115 +1,48 @@
-# Publish to GitHub Pages — drjavi
+# Publish to GitHub Pages — Tosin Gbajavi Portfolio
 
-Your portfolio is already committed locally and configured for:
+Your portfolio is committed locally and configured for your GitHub repository:
 
 | Item | Value |
 |------|--------|
-| GitHub user | **drjavi** |
-| Repository | **drjavi.github.io** |
-| Live URL | **https://drjavi.github.io** |
-| Remote | `https://github.com/drjavi/drjavi.github.io.git` |
-
-This sandbox cannot log into your GitHub account, so the final push must run on **your computer** (or GitHub’s website). Pick one method below.
+| GitHub user | **drjavi1** |
+| Repository | **drjavi.github.io** *(or `drjavi1.github.io` if renamed)* |
+| Live URL | **https://drjavi1.github.io/drjavi.github.io/** *(or **https://drjavi1.github.io**)* |
+| Remote | `https://github.com/drjavi1/drjavi.github.io.git` |
 
 ---
 
-## Method 1 — GitHub website (easiest, ~3 minutes)
+## How to Publish Live on GitHub Pages (Fastest Method)
 
-1. Open **[https://github.com/new](https://github.com/new)** while logged in as **drjavi**.
-2. Repository name: **`drjavi.github.io`** (exactly this name for a root user site).
-3. Set visibility to **Public**.
-4. **Do not** add a README, .gitignore, or license (this folder already has them).
-5. Click **Create repository**.
-6. On the empty repo page, click **uploading an existing file**.
-7. Open the `portfolio` folder on your machine (or unzip `drjavi-portfolio-github.zip`).
-8. Drag in **all files** at the root of the portfolio:
-   - `index.html`
-   - `README.md`
-   - `LICENSE`
-   - `.gitignore`
-   - `.nojekyll`
-   - `assets/` folder (with css + js inside)
-9. Commit message: `Initial portfolio site`
-10. Click **Commit changes**.
-11. Go to **Settings → Pages**.
-12. Under **Build and deployment**:
-    - Source: **Deploy from a branch**
-    - Branch: **main** (or **master**), folder **/ (root)**
-    - Save
-13. Wait 1–2 minutes, then visit **[https://drjavi.github.io](https://drjavi.github.io)**.
+All portfolio files (`index.html`, `assets/css/style.css`, `assets/js/main.js`, `README.md`, and `.nojekyll`) are included in this repository.
+
+To activate the live site:
+
+1. Open your repository settings on GitHub:  
+   👉 **[https://github.com/drjavi1/drjavi.github.io/settings/pages](https://github.com/drjavi1/drjavi.github.io/settings/pages)**
+2. Under **Build and deployment**:
+   - Select **Source: Deploy from a branch**
+   - Choose **Branch: `main`** and **Folder: `/ (root)`**
+   - Click **Save**
+3. Wait approximately 1–2 minutes, then visit your live site:  
+   🌐 **[https://drjavi1.github.io/drjavi.github.io/](https://drjavi1.github.io/drjavi.github.io/)**
+
+> **Tip — Root domain URL:**  
+> If you want your site at **https://drjavi1.github.io** without `/drjavi.github.io/` at the end, go to **Settings → General** on GitHub and rename the repository from `drjavi.github.io` to **`drjavi1.github.io`**.
 
 ---
 
-## Method 2 — Git command line (recommended long-term)
+## Updating Your Site Later
 
-On your computer, with [Git](https://git-scm.com/) installed and logged into GitHub:
-
-### A. Create the empty repo first
-
-1. Go to [https://github.com/new](https://github.com/new)
-2. Name it **`drjavi.github.io`**, Public, no README → Create.
-
-### B. Push this portfolio
+Whenever you want to add new certifications, update your experience, or adjust styling:
 
 ```bash
-# Download / copy the portfolio folder, then:
-cd portfolio
-
-# If git is not initialized yet:
-git init
-git add .
-git commit -m "Initial portfolio site for Tosin Gbajavi"
-git branch -M main
-
-git remote add origin https://github.com/drjavi/drjavi.github.io.git
-# If remote already exists:
-# git remote set-url origin https://github.com/drjavi/drjavi.github.io.git
-
-git push -u origin main
-```
-
-When prompted, sign in with your GitHub username (**drjavi**) and a **Personal Access Token** (not your password).
-
-**Create a token:** GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate  
-Scopes needed: **`repo`**
-
-### C. Enable Pages
-
-**Settings → Pages → Deploy from a branch → main / root → Save**
-
-Site: **https://drjavi.github.io**
-
----
-
-## Method 3 — GitHub CLI
-
-```bash
-# Install: https://cli.github.com/
-gh auth login
-cd portfolio
-gh repo create drjavi.github.io --public --source=. --remote=origin --push
-gh api -X POST repos/drjavi/drjavi.github.io/pages -f build_type=legacy -f source[branch]=main -f source[path]=/
-```
-
----
-
-## After it’s live
-
-- Share: https://drjavi.github.io  
-- Add the link to your LinkedIn **Featured** or **Website** field  
-- Optional: custom domain under **Settings → Pages → Custom domain**
-
-### Update the site later
-
-```bash
-cd portfolio
-# edit files...
+# Make your edits to index.html or assets/css/style.css, then run:
 git add .
 git commit -m "Update portfolio content"
-git push
+git push origin main
 ```
 
-GitHub Pages rebuilds automatically in about a minute.
+GitHub Pages will automatically rebuild and deploy your changes within 1–2 minutes.
 
 ---
 
@@ -117,7 +50,6 @@ GitHub Pages rebuilds automatically in about a minute.
 
 | Issue | Fix |
 |-------|-----|
-| 404 on drjavi.github.io | Confirm repo name is exactly `drjavi.github.io` and Pages is enabled on `main` / root |
-| Site shows old content | Hard refresh (Ctrl+Shift+R) or wait 2–5 min for CDN |
-| Push rejected / auth failed | Use a Personal Access Token with `repo` scope |
-| CSS/JS not loading | Ensure `assets/` was uploaded and `.nojekyll` is in the repo root |
+| 404 on live site | Ensure Pages is enabled under **Settings → Pages** and wait 2–3 minutes for deployment to complete. |
+| Site shows old content | Perform a hard refresh in your browser (`Ctrl+Shift+R` or `Cmd+Shift+R`) or wait for CDN cache to clear. |
+| Missing styles or JavaScript | Ensure the `assets/` folder is present in the repository root (which is now configured by default). |

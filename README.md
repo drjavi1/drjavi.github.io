@@ -4,10 +4,10 @@
 
 Personal portfolio website showcasing clinical informatics experience, digital health expertise, education, and certifications.
 
-🌐 **Live site:** [https://drjavi.github.io](https://drjavi.github.io)  
+🌐 **Live site:** [https://drjavi1.github.io/drjavi.github.io/](https://drjavi1.github.io/drjavi.github.io/) *(or [https://drjavi1.github.io/](https://drjavi1.github.io/) if repository is renamed to `drjavi1.github.io`)*  
 🔗 **LinkedIn:** [linkedin.com/in/tosingbajavi](https://www.linkedin.com/in/tosingbajavi)  
-✉️ **Email:** [tosin.vincent@gmail.com](mailto:tosin.vincent@gmail.com)
-📦 **GitHub:** [github.com/drjavi](https://github.com/drjavi)
+✉️ **Email:** [tosin.vincent@gmail.com](mailto:tosin.vincent@gmail.com)  
+📦 **GitHub:** [github.com/drjavi1](https://github.com/drjavi1)
 
 ---
 
@@ -23,68 +23,55 @@ Personal portfolio website showcasing clinical informatics experience, digital h
 | **Certifications** | Azure AI, Oracle Cloud AI, Claude/Bedrock, SQL |
 | **Contact** | Email, LinkedIn, phone, location |
 
-Built with plain **HTML, CSS, and JavaScript** — no build step, ready for **GitHub Pages**.
+Built with plain **HTML, CSS, and JavaScript** — no build step required, ready for **GitHub Pages**.
 
 ---
 
 ## Project structure
 
 ```
-portfolio/
+drjavi.github.io/
 ├── index.html              # Main portfolio page
-├── README.md               # This file
+├── README.md               # This documentation
+├── PUBLISH.md              # Publishing guide
 ├── LICENSE                 # MIT license
+├── .nojekyll               # Disables Jekyll processing on GitHub Pages
 └── assets/
-    ├── css/style.css       # Styles
-    └── js/main.js          # Nav, scroll effects
+    ├── css/
+    │   └── style.css       # Styles and responsive layout
+    └── js/
+        └── main.js         # Nav, scroll effects, dynamic year
 ```
 
 ---
 
-## Deploy to GitHub Pages (step by step)
+## Publishing to GitHub Pages (2 quick clicks on GitHub)
 
-### Option A — New repository (recommended)
+Your portfolio code and styling assets are fully configured and ready to go live on GitHub Pages.
 
-1. Create a new GitHub repo named **`drjavi.github.io`** (user site → live at https://drjavi.github.io).  
-   - Or use any name (e.g. `portfolio`) → site at `https://drjavi.github.io/portfolio/`
+1. Go to your GitHub repository Pages settings:  
+   👉 **[https://github.com/drjavi1/drjavi.github.io/settings/pages](https://github.com/drjavi1/drjavi.github.io/settings/pages)**
+2. Under **Build and deployment**:
+   - Set **Source** to **Deploy from a branch**
+   - Choose Branch **`main`** and Folder **`/ (root)`**
+   - Click **Save**
+3. Wait approximately 1–2 minutes, and your live portfolio will be published at:
+   - 🌐 **https://drjavi1.github.io/drjavi.github.io/**
 
-2. Push this folder:
-
-```bash
-cd portfolio
-git init
-git add .
-git commit -m "Initial portfolio site"
-git branch -M main
-git remote add origin https://github.com/drjavi/drjavi.github.io.git
-git push -u origin main
-```
-
-3. On GitHub: **Settings → Pages → Build and deployment**
-   - Source: **Deploy from a branch**
-   - Branch: **main** / folder: **/ (root)**
-   - Save
-
-4. Wait 1–2 minutes, then open https://drjavi.github.io
-
-### Option B — Upload via GitHub web UI
-
-1. Create a new repository on GitHub.
-2. Click **Add file → Upload files**.
-3. Drag in everything from this `portfolio` folder.
-4. Commit, then enable Pages as in step 3 above.
+> **Tip — Root domain URL:**  
+> To serve your portfolio directly at **https://drjavi1.github.io** (without `/drjavi.github.io/` at the end), go to **Settings → General** on GitHub and rename this repository from `drjavi.github.io` to **`drjavi1.github.io`**.
 
 ---
 
 ## Local preview
 
-Open `index.html` in a browser, or serve locally:
+Open `index.html` directly in a browser, or serve locally using any HTTP server:
 
 ```bash
 # Python
 python3 -m http.server 8080
 
-# Node (if you have npx)
+# Node
 npx serve .
 ```
 
@@ -105,7 +92,7 @@ Then visit `http://localhost:8080`.
 
 ## Tech notes
 
-- Fully responsive (mobile nav, fluid type)
+- Fully responsive (mobile nav, fluid typography, modern layout)
 - Accessible landmarks, focus styles, reduced-motion support
 - Zero dependencies — fast load on GitHub Pages
 - SEO-friendly title and meta description
